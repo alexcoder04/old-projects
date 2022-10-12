@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<data>
+    <version number="4.0"/>
+
+    <head>
+    <name>test_file</name>
+    <created>2022_09_04 12:41:38</created>
+    <changed>2022_09_04 12:41:50</changed>
+    <author>alexcoder04</author>
+    <subject></subject>
+    <tags list=""></tags>
+    </head>
+
+    <body>
+    <e type="p">Hello World</e>
+    </body>
+</data>
