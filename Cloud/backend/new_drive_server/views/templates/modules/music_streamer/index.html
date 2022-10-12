@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block extra_head %}
+<script src="{{ static_server }}js/modules/music_streamer.js" defer></script>
+<style>
+    .hidden {
+        display: none;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section>
+    <h1>Welcome to MagnanMusicPlayer</h1>
+    <h3>Playing: <span id="current-song">---name not loaded---</span></h3>
+    <audio
+        controls
+        src="/module/streamer/random-song"
+        autoplay
+        onended="getNewSong()"
+        id="player"
+        style="width: 100%;"
+    ></audio>
+    <button class="btn btn-primary" id="play-pause">
+        <i class="fa fa-play"></i>
+        Play
+    </button>
+    <button class="btn btn-primary" id="skip">
+        <i class="fa fa-forward"></i>
+        Skip
+    </button>
+</section>
+
+<section>
+    <h3>Songs:</h3>
+    <label for="song-search">Song suchen</label>
+    <input type="text" name="song-search" id="song-search" class="form-control">
+    <br>
+    {% for song in songs %}
+        <button class="btn btn-secondary song-select" data-href="{{song}}">{{ song.replace(music_root, "") }}</button>
+    {% endfor %}
+</section>
+
+<section>
+    <h3>Eigenes Lied hinzufügen</h3>
+    <label for="dl-link">Link hier einfügen: </label>
+    <input type="text" name="dl-link" id="dl-link">
+    <button type="button" class="btn btn-primary" id="add-song">Hinzufügen</button>
+</section>
+
+<h3>
+    Hear radio <a href="/module/streamer/radio">here</a>.
+</h3>
+{% endblock %}

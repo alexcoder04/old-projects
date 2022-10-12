@@ -1,0 +1,6 @@
+.idea
+*.db
+new_drive_server/storage/user
+new_drive_server/config/config.json
+new_drive_server/storage/logs
+new_drive_server/plugins

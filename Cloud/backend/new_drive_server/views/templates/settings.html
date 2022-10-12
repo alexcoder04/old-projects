@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Mangan Drive - Settings{% endblock %}
+
+{% block content %}
+<h1>ManganDrive - Settings</h1>
+<h2>Account details</h2>
+<table>
+    <tr>
+        <td style="font-weight: bold">Username:</td><td>{{ data["name"] }}</td>
+    </tr>
+    <tr>
+        <td style="font-weight: bold;">E-Mail:</td><td>{{ data["email"] }}</td>
+    </tr>
+    <tr>
+        <td style="font-weight: bold;">Secret API key:</td><td>{{ data["api_key"] }}</td>
+    </tr>
+</table>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Welcome to MagnanMusicPlayer</h1>
+<h2>Radio: <span id="radio_name">NJOY</span></h2>
+<audio
+        autoplay
+        src="https://ndr-njoy-live.cast.addradio.de/ndr/njoy/live/mp3/128/stream.mp3"
+        onended="getNewSong()"
+        id="player"
+        style="width: 100%;"
+>Something went wrong</audio>
+<button class="btn btn-primary" onclick="togglePlayPause()" id="play-pause">
+    <i class="fa fa-play"></i>
+    Play
+</button>
+<hr>
+<button class="btn btn-secondary" onclick="setRadio(NDR, 'NDR 2')">
+    NDR 2
+</button>
+<button class="btn btn-secondary" onclick="setRadio(NJOY, 'NJOY')">
+    NJOY
+</button>
+<div>
+    <label for="your-link">Enter custom radio link</label>
+    <input type="text" id="your-link" class="form-control">
+    <button onclick="setRadio(document.getElementById('your-link').value, 'Custom')" class="btn btn-secondary">Start</button>
+</div>
+<h3>
+Here your own music <a href="/streamer/stream">here</a>.
+</h3>
+<script>
+    const NDR = "https://ndr-ndr2-niedersachsen.cast.addradio.de/ndr/ndr2/niedersachsen/mp3/128/stream.mp3";
+    const NJOY = "https://ndr-njoy-live.cast.addradio.de/ndr/njoy/live/mp3/128/stream.mp3";
+
+    const audioDomEl = document.getElementById("player");
+    const playPauseBtn = document.getElementById("play-pause");
+
+    const setRadio = (link, name) => {
+        document.getElementById('player').src = link;
+        document.getElementById('radio_name').innerText = name;
+    };
+
+    const togglePlayPause = () => {
+        if (audioDomEl.paused){
+            audioDomEl.play();
+            playPauseBtn.innerHTML = "<i class='fa fa-pause'></i>Pause";
+            return;
+        }
+        playPauseBtn.innerHTML = "<i class='fa fa-play'></i>Play";
+        audioDomEl.pause();
+    };
+</script>
+{% endblock %}

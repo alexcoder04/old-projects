@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}MagnanDrive - Error{% endblock %}
+
+{% block content %}
+<h1>Ooops, something went wrong...</h1>
+<h2 style="color: red;">{{ message }}</h2>
+<h3>Return to the <a href="/">home page</a>, <a href="/mystuff/root">your files</a> or go <a href="javascript:window.history.back()">back</a>.</h3>
+<h3>You can also give feedback to the developer <a href="/plugin/chat/feedback">here</a>.</h3>
+{% endblock %}

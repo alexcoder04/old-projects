@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+    Mangan Drive - MyStuff
+{% endblock %}
+
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{{ static_server }}css/mystuff.css" />
+    <link rel="stylesheet" href="{{ static_server }}css/contextmenu.css"/>
+    <script>
+        const CURRENT_PATH = "{{ data['folder'] }}";
+        const USERNAME = "{{ data['username'] }}";
+        const STATIC_SERVER = "{{ static_server }}";
+    </script>
+{% endblock %}
+
+
+{% block content %}
+
+<h1>ManganDrive - {{ data['username'] }} - {{ data["folder"].replace("root", "MyStuff") }}</h1>
+
+<!-- Uploading files form -->
+<form method="post" action="{{ url_for('storage.upload') }}" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="file" class="btn btn-primary">
+            <input type="file" name="file" id="file"/>
+            Upload
+            <i class="fa fa-upload"></i>
+        </label>
+        <input type="hidden" name="current_folder" value="{{ data['folder'] }}" />
+        <button type="submit" class="btn btn-success">
+            Confirm
+            <i class="fa fa-check-circle-o"></i>
+        </button>
+    </div>
+</form>
+
+<!-- Creating Subfolders button -->
+<div class="form-group">
+    <button
+            type="button"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#main-modal"
+            id="create-folder-trigger-btn"
+    >
+        Create folder
+        <i class="fa fa-plus-circle"></i>
+    </button>
+</div>
+
+<!-- Current folder path -->
+<div class="folder-path" id="folder-path"></div>
+
+<!-- Content of the current folder -->
+
+<!-- Subfolders -->
+<div class="files-container" id="subfolders-list"></div>
+
+<!-- Files -->
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Preview</th>
+            <th scope="col">Size</th>
+            <th scope="col">Name</th>
+            <th scope="col">Last modified</th>
+        </tr>
+    </thead>
+    <tbody id="files-list"></tbody>
+</table>
+
+<div class="placeholder"></div>
+{% endblock %}
+
+
+{% block extra_scripts %}
+<script src="{{ static_server }}js/mystuff.new.js" type="module"></script>
+{% endblock %}

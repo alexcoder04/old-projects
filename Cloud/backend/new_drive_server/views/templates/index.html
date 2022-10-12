@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block title %}Mangan Drive - Home{% endblock %}
+
+{% block content %}
+<h1>MagnanDrive - Cloud Storage redefined</h1>
+
+<section>
+    <h3>Start working with your <a href="/mystuff/root">files</a> now</h3>
+    <h3>No account yet? <a href="/signup">Create one!</a></h3>
+</section>
+
+<section>
+    <h2>Why Magnan Drive?</h2>
+    <p>
+        Magnan Drive is a privacy-oriented and user-friendly online storage service, which runs on a Raspberry Pi.
+        It is created and ran by <a href="https://github.com/alexcoder04" target="_blank">alexcoder04</a> for private use.
+    </p>
+</section>
+
+<section>
+    <h2>Technology we use</h2>
+    <div style="display: flex">
+        <a href="https://www.kernel.org/doc/html/latest/" target="_blank">
+        <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Tux-flat.svg/509px-Tux-flat.svg.png"
+            alt="linux-logo"
+            width="150px"
+            height="175px"
+        >
+        </a>
+        <a href="https://www.raspberrypi.org/" target="_blank">
+        <img
+            src="https://www.raspberrypi.org/app/uploads/2018/03/RPi-Logo-Reg-SCREEN.png"
+            alt="raspberry-pi-logo"
+            width="150px"
+            height="175px"
+        >
+        </a>
+        <a href="https://debian.org/" target="_blank">
+        <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Debian-OpenLogo.svg/70px-Debian-OpenLogo.svg.png"
+            alt="debian-logo"
+            height="175px"
+            width="150px"
+        >
+        </a>
+        <a href="https://nginx.com/" target="_blank">
+            <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nginx_logo.svg/1200px-Nginx_logo.svg.png"
+                alt="nginx-logo"
+                height="175px"
+                width="300px"
+            >
+        </a>
+        <a href="https://palletsprojects.com/p/flask/" target="_blank">
+        <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Flask_logo.svg/250px-Flask_logo.svg.png"
+            alt="flask-logo"
+            width="350px"
+            height="175px"
+        >
+        </a>
+        <a href="http://getbootstrap.com/" target="_blank">
+        <img
+            src="https://icons.getbootstrap.com/assets/img/icons-hero.png"
+            alt="bootstrap-logo"
+            height="175px"
+            width="250px"
+        >
+        </a>
+    </div>
+</section>
+
+<section>
+    <h2>About the server</h2>
+    <table>
+        <tbody>
+            <tr>
+                <td>Operating system (OS):</td>
+                <td>GNU/Linux</td>
+            </tr>
+            <tr>
+                <td>Magnan version:</td>
+                <td>{{ magnan_version }}</td>
+            </tr>
+            <tr>
+                <td>Local IP address:</td>
+                <td>{{ ip }}</td>
+            </tr>
+            <tr>
+                <td>URL:</td>
+                <td><a href="http://{{ ip }}:{{ port }}/" target="_blank">http://{{ ip }}:{{ port }}/</a></td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+{% endblock %}

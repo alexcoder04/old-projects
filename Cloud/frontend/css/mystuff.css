@@ -1,0 +1,17 @@
+
+.file-el{
+    transition: background-color 0.2s;
+}
+
+.file-el:hover{
+    background-color: var(--light);
+}
+
+.btn-download{
+    width: 100%;
+}
+
+.btn-folder{
+    margin: 10px;
+}
+

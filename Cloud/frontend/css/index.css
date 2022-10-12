@@ -1,0 +1,15 @@
+:root{
+    --light: #DEE3E8;
+}
+
+.bg-light {
+    background-color: var(--light) !important;
+}
+
+.placeholder{
+    height: 200px;
+}
+
+.placeholder-small{
+    height: 100px;
+}

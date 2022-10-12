@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+    Mangan Drive - MyStuff
+{% endblock %}
+
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{{ static_server }}css/mystuff.css" />
+{% endblock %}
+
+
+{% block content %}
+
+<h1>ManganDrive - {{ data['username'] }} - Shared files</h1>
+
+<!-- Files -->
+<ul class="files-container list-group" id="files-list">
+    {% if files %}
+        {% for file in files %}
+        <li class="list-group-item">
+            <button type="button" class="btn btn-dark btn-file">
+                <i class="fa fa-file-o"></i>
+                {{ file["path"].replace("root", "My Stuff") }} - {{ file["uuid"] }}
+            </button>
+        </li>
+        {% endfor %}
+    {% else %}
+        <li>You haven't share any files yet</li>
+    {% endif %}
+</ul>
+
+<div class="placeholder"></div>
+{% endblock %}
